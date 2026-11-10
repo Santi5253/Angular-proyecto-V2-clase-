@@ -1,0 +1,12 @@
+.historial-card { padding: 1.5rem; border-top: 4px solid #f59e0b; }
+.toolbar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0; background: #fff; padding: 0.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.search { flex: 1; min-width: 220px; }
+.kpis { display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap; }
+.kpi { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff; padding: 1rem 1.2rem; border-radius: 12px; min-width: 160px; box-shadow: 0 4px 12px rgba(30,58,138,0.15); }
+.kpi span { display: block; font-size: 0.85rem; opacity: 0.85; }
+.kpi strong { font-size: 1.6rem; font-weight: 700; }
+.empty-state { text-align: center; padding: 1.5rem; }
+.empty-img { width: 100px; height: 100px; object-fit: contain; margin-bottom: 0.5rem; }
+.card-img { width: 56px; height: 56px; object-fit: contain; margin-right: 0.5rem; }
+mat-card-title { color: #1e3a8a !important; font-weight: 700 !important; }
+button[mat-raised-button] { border-radius: 10px !important; padding: 0.5rem 1.4rem !important; font-weight: 600 !important; }

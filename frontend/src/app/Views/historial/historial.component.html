@@ -1,0 +1,29 @@
+<mat-card class="historial-card">
+  <mat-card-header>
+    <img src="/img/mike-sonriendo.png" alt="Historial" class="card-img" />
+    <div>
+      <mat-card-title>Historial de ventas del día</mat-card-title>
+      <mat-card-subtitle>Consulte las ventas registradas hoy.</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="toolbar">
+      <mat-form-field appearance="outline" class="search">
+        <mat-label>Buscar por cliente, medio o #</mat-label>
+        <input matInput [value]="filtro" (input)="filtro = $any($event.target).value" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="cargar()">Actualizar</button>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><span>Ventas hoy</span><strong>{{ cantidadHoy }}</strong></div>
+      <div class="kpi"><span>Total hoy</span><strong>${{ totalHoy }}</strong></div>
+    </div>
+    <app-tabla [columns]="tableColumns" [data]="ventasFiltradas" [pageSize]="5" [filterPlaceholder]="'Buscar...'"></app-tabla>
+    @if (!ventasFiltradas.length) {
+      <div class="empty-state">
+        <img src="/img/hanna-guiniando.png" alt="Sin ventas" class="empty-img" />
+        <p>Sin ventas hoy.</p>
+      </div>
+    }
+  </mat-card-content>
+</mat-card>

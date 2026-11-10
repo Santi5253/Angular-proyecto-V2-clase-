@@ -1,0 +1,12 @@
+.topbar { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff; padding: 0.9rem 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 16px rgba(30,58,138,0.25); position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 0.8rem; }
+.logo-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: #fff; padding: 3px; }
+.brand h2 { margin: 0; font-size: 1.3rem; font-weight: 700; }
+.brand p { margin: 0; font-size: 0.85rem; opacity: 0.85; }
+.nav-links { display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
+.nav-links a { color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.2s; font-weight: 500; }
+.nav-links a:hover { background: rgba(255,255,255,0.18); }
+.nav-links a.active { background: rgba(255,255,255,0.28); font-weight: 700; }
+.user-chip { background: rgba(255,255,255,0.18); padding: 0.3rem 0.8rem; border-radius: 999px; margin-left: 0.5rem; }
+.nav-links button { background: rgba(255,255,255,0.2); color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 500; }
+.nav-links button:hover { background: rgba(255,255,255,0.32); }

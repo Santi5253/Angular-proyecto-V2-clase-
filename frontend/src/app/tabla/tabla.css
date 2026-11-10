@@ -1,0 +1,8 @@
+.table-toolbar { margin-bottom: 0.5rem; }
+.filter { width: 100%; max-width: 320px; }
+.full-width-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.full-width-table th { background: #1e3a8a; color: #fff; padding: 0.7rem; }
+.full-width-table td { padding: 0.6rem; border-bottom: 1px solid #e2e8f0; }
+.full-width-table tr:hover td { background: #f1f5f9; }
+.badge { background: #dbeafe; color: #1e3a8a; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+mat-paginator { margin-top: 0.5rem; }

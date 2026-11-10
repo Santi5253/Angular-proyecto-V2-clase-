@@ -1,0 +1,59 @@
+<mat-card class="inventario-card">
+  <mat-card-header>
+    <img src="/img/hanna-riendo.png" alt="Inventario" class="card-img" />
+    <div>
+      <mat-card-title>Inventario — Cigarrería</mat-card-title>
+      <mat-card-subtitle>Crear, editar, buscar y eliminar productos del inventario.</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardar()" class="inventario-form">
+      <div class="row">
+        <mat-form-field class="col" appearance="outline">
+          <mat-label>Código</mat-label>
+          <input matInput formControlName="codigo" [readonly]="!!editando" />
+        </mat-form-field>
+        <mat-form-field class="col" appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre" />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col" appearance="outline">
+          <mat-label>Categoría</mat-label>
+          <mat-select formControlName="categoria">
+            @for (c of categorias; track c) { <mat-option [value]="c">{{ c }}</mat-option> }
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col" appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input matInput type="number" formControlName="precio" />
+        </mat-form-field>
+        <mat-form-field class="col" appearance="outline">
+          <mat-label>Stock</mat-label>
+          <input matInput type="number" formControlName="stock" />
+        </mat-form-field>
+      </div>
+      @if (error) { <p class="error">{{ error }}</p> }
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit">{{ editando ? 'Actualizar' : 'Agregar' }}</button>
+        @if (editando) { <button mat-button type="button" (click)="cancelar()">Cancelar</button> }
+      </div>
+    </form>
+
+    <app-tabla [columns]="tableColumns" [data]="productos" [pageSize]="5" [filterPlaceholder]="'Buscar por código, nombre o categoría'">
+      <ng-template #actionsTpl let-p>
+        <button mat-button color="primary" (click)="editar(p)">Editar</button>
+        <button mat-button color="warn" (click)="eliminar(p.codigo)">Eliminar</button>
+      </ng-template>
+    </app-tabla>
+
+    @if (!productos.length) {
+      <div class="empty-state">
+        <img src="/img/hanna-guiniando.png" alt="Sin resultados" class="empty-img" />
+        <p>Sin resultados. Agregue su primer producto arriba.</p>
+      </div>
+    }
+    <p class="inventario">Valor inventario: <strong>${{ valorInventario }}</strong> | Productos: <strong>{{ productos.length }}</strong></p>
+  </mat-card-content>
+</mat-card>

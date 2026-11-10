@@ -1,0 +1,25 @@
+<div class="table-toolbar">
+  <mat-form-field appearance="outline" class="filter">
+    <mat-label>{{ filterPlaceholder }}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" />
+  </mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource" matSort class="full-width-table">
+  @for (col of columns; track col.key) {
+    <ng-container [matColumnDef]="col.key">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ col.header }}</th>
+      <td mat-cell *matCellDef="let row">
+        @if (col.key === 'actions' && actionsTemplate) {
+          <ng-container *ngTemplateOutlet="actionsTemplate; context: { $implicit: row }"></ng-container>
+        } @else if (col.type === 'badge') {
+          <span class="badge">{{ row[col.key] }}</span>
+        } @else {
+          {{ format(row[col.key], col.type) }}
+        }
+      </td>
+    </ng-container>
+  }
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5,10,20]"></mat-paginator>

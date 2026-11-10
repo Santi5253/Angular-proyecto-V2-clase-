@@ -1,0 +1,20 @@
+.factura-card { padding: 1.5rem; border-top: 4px solid #10b981; }
+.row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 0.6rem 0; align-items: flex-end; }
+.col { flex: 1; min-width: 200px; }
+.cant { width: 110px; }
+.desc { width: 120px; }
+.actions { display: flex; gap: 0.8rem; margin: 1rem 0; flex-wrap: wrap; }
+.error { color: #ef4444; font-weight: 500; background: #fee2e2; padding: 0.5rem 0.8rem; border-radius: 8px; }
+.empty { color: #64748b; text-align: center; padding: 1rem; }
+.totales { font-size: 1.15rem; font-weight: 600; color: #1e3a8a; margin: 1rem 0; background: #dbeafe; padding: 0.8rem 1rem; border-radius: 10px; display: inline-block; }
+.gran { color: #10b981; font-size: 1.35rem; font-weight: 700; }
+.pago-panel { background: #f1f5f9; padding: 1rem; border-radius: 12px; border-left: 4px solid #3b82f6; }
+.cambio { font-size: 1.1rem; font-weight: 600; }
+.ticket { background: #f0fdf4; padding: 1rem; border-radius: 12px; margin-top: 1rem; border-left: 4px solid #10b981; }
+.ticket h3 { color: #065f46; margin-top: 0; }
+mat-card-title { color: #1e3a8a !important; font-weight: 700 !important; }
+button[mat-raised-button] { border-radius: 10px !important; padding: 0.5rem 1.4rem !important; font-weight: 600 !important; }
+.full-width-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.full-width-table th { background: #1e3a8a; color: #fff; padding: 0.7rem; }
+.full-width-table td { padding: 0.6rem; border-bottom: 1px solid #e2e8f0; }
+.card-img { width: 56px; height: 56px; object-fit: contain; margin-right: 0.5rem; }

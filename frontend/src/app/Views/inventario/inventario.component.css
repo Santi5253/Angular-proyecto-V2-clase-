@@ -1,0 +1,16 @@
+.inventario-card { padding: 1.2rem; border-top: 4px solid #3b82f6; }
+.inventario-form { background: #f8fafc; padding: 1.2rem; border-radius: 12px; margin: 1rem 0; }
+.row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.col { flex: 1; min-width: 200px; }
+.actions { display: flex; gap: 0.8rem; margin-top: 0.5rem; flex-wrap: wrap; }
+.toolbar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1.2rem 0; }
+.search { flex: 1; min-width: 220px; }
+.inventario { font-weight: 600; color: #1e3a8a; background: #dbeafe; padding: 0.5rem 1rem; border-radius: 8px; display: inline-block; margin-top: 1rem; }
+.badge { background: #dbeafe; color: #1e3a8a; padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+.error { color: #ef4444; font-weight: 500; background: #fee2e2; padding: 0.5rem 0.8rem; border-radius: 8px; }
+.empty-state { text-align: center; padding: 2rem; }
+.empty-img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 0.5rem; }
+.card-img { width: 56px; height: 56px; object-fit: contain; margin-right: 0.5rem; }
+mat-card-title { color: #1e3a8a !important; font-weight: 700 !important; }
+button[mat-raised-button] { border-radius: 10px !important; padding: 0.5rem 1.4rem !important; font-weight: 600 !important; }
+button[mat-button] { border-radius: 8px !important; }
