@@ -28,23 +28,56 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
-  submit() {
+  async submit() {
     this.error = '';
-    if (this.form.invalid) { this.form.markAllAsTouched(); return; }
+    const Swal = (await import('sweetalert2')).default;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campos requeridos',
+        text: 'Por favor ingresa usuario y contraseña.',
+        confirmButtonColor: '#1e3a8a',
+      });
+      return;
+    }
     this.cargando = true;
     const { username, password } = this.form.getRawValue();
     this.auth.login(username!, password!).subscribe({
-      next: (res: any) => {
+      next: async (res: any) => {
         this.cargando = false;
         if (res.success) {
           this.auth.setSession(res.usuario);
+          await Swal.fire({
+            icon: 'success',
+            title: '¡Bienvenido!',
+            text: `Hola ${res.usuario?.nombre ?? username}, has iniciado sesión correctamente.`,
+            timer: 1500,
+            showConfirmButton: false,
+          });
           this.router.navigate(['/inventario']);
         } else {
           this.error = 'Usuario o contraseña incorrectos';
+          Swal.fire({
+            icon: 'error',
+            title: 'Acceso denegado',
+            text: 'Usuario o contraseña incorrectos.',
+            confirmButtonColor: '#ef4444',
+          });
         }
         this.cdr.detectChanges();
       },
-      error: () => { this.cargando = false; this.error = 'Error de conexión'; this.cdr.detectChanges(); },
+      error: () => {
+        this.cargando = false;
+        this.error = 'Error de conexión';
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de conexión',
+          text: 'No se pudo conectar con el servidor. Intenta de nuevo.',
+          confirmButtonColor: '#ef4444',
+        });
+        this.cdr.detectChanges();
+      },
     });
   }
 }
