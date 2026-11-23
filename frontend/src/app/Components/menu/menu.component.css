@@ -1,4 +1,14 @@
-.topbar { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff; padding: 0.9rem 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 16px rgba(30,58,138,0.25); position: sticky; top: 0; z-index: 10; }
+.topbar { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff; padding: 1.2rem 1.8rem; min-height: 84px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 16px rgba(30,58,138,0.25); position: sticky; top: 0; z-index: 10; flex-wrap: wrap; gap: 0.8rem; }
+
+.topbar .brand h2 { font-size: 1.5rem; margin: 0; }
+.topbar .brand p { font-size: 1rem; margin: 0; }
+
+.topbar .nav-links a { font-size: 1.05rem; }
+.topbar .user-name { font-size: 1.05rem; }
+
+.avatar { width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; margin-left: 0.5rem; }
+
+.user-name { font-weight: 600; }
 .brand { display: flex; align-items: center; gap: 0.8rem; }
 .logo-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: #fff; padding: 3px; }
 .brand h2 { margin: 0; font-size: 1.3rem; font-weight: 700; }

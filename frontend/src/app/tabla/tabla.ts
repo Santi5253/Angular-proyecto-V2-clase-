@@ -1,4 +1,5 @@
 import { Component, ContentChild, Input, TemplateRef, ViewChild, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
@@ -10,7 +11,7 @@ export interface TableColumn { key: string; header: string; type?: 'text'|'numbe
 @Component({
   selector: 'app-tabla',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatFormFieldModule],
+  imports: [MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatFormFieldModule, NgTemplateOutlet],
   templateUrl: './tabla.html',
   styleUrl: './tabla.css',
 })

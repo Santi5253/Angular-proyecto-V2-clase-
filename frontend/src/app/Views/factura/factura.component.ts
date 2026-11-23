@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { ProductosService, Producto } from '../../Services/productos.service';
 import { VentasService } from '../../Services/ventas.service';
 
@@ -23,6 +23,7 @@ export class FacturaComponent implements OnInit {
 
   medios = ['Efectivo', 'Tarjeta', 'Nequi', 'Daviplata'];
   carrito: { producto: Producto; cantidad: number }[] = [];
+  carritoSource = new MatTableDataSource<{ producto: Producto; cantidad: number }>([]);
   factura: any = null;
   error = '';
 
@@ -62,10 +63,11 @@ export class FacturaComponent implements OnInit {
     if (enCarrito + cant > prod.stock) { this.error = `Stock insuficiente de ${prod.nombre}`; return; }
     const ex = this.carrito.find((l) => l.producto.codigo === cod);
     if (ex) ex.cantidad += cant; else this.carrito.push({ producto: prod, cantidad: cant });
+    this.carritoSource.data = [...this.carrito];
     this.lineaForm.reset({ productoCodigo: '', cantidad: 1 });
   }
 
-  quitarLinea(codigo: string) { this.carrito = this.carrito.filter((l) => l.producto.codigo !== codigo); }
+  quitarLinea(codigo: string) { this.carrito = this.carrito.filter((l) => l.producto.codigo !== codigo); this.carritoSource.data = [...this.carrito]; }
 
   confirmar() {
     this.error = '';
@@ -106,6 +108,7 @@ export class FacturaComponent implements OnInit {
     };
     this.ventas.registrar(payload).subscribe({ next: () => this.servicio.refrescar(), error: () => {} });
     this.carrito = [];
+    this.carritoSource.data = [];
   }
 
   nuevaFactura() {
