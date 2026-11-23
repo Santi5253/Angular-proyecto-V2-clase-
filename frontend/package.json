@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "serve -s dist/mi-app/browser -l $PORT",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -23,6 +23,7 @@
     "ng2-charts": "^10.0.0",
     "qrcode": "^1.5.4",
     "rxjs": "~7.8.0",
+    "serve": "^14.2.8",
     "sweetalert2": "^11.26.25",
     "tslib": "^2.3.0"
   },
