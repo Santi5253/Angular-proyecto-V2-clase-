@@ -1,9 +1,12 @@
+// Script SOLO para uso local: crea el usuario y la base de datos y carga las tablas.
+// En Railway no hace falta: el backend crea las tablas solo al arrancar (src/Config/init-db.ts).
+require('dotenv').config();
 const { Pool } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
-const ADMIN_USER = 'postgres';
-const ADMIN_PASSWORD = '1234';
+const ADMIN_USER = process.env.DB_ADMIN_USER || 'postgres';
+const ADMIN_PASSWORD = process.env.DB_ADMIN_PASSWORD || '';
 const DB_HOST = process.env.DB_HOST || 'localhost';
 const DB_PORT = Number(process.env.DB_PORT || 5432);
 const DB_USER = process.env.DB_USER || 'caja_user';

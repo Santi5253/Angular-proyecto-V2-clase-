@@ -1,6 +1,19 @@
+# Dependencias y compilados
 node_modules/
 dist/
 .angular/
+
+# Variables secretas
 .env
+.env.*
+!.env.example
+
+# Sistema y logs
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Documentos y material de entrega (no son código)
 *.docx
 manual_img/

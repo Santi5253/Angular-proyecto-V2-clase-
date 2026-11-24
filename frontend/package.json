@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "dev": "ng serve",
     "start": "serve -s dist/mi-app/browser -l $PORT",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",

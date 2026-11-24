@@ -6,7 +6,13 @@ import ventasRoutes from './Routes/ventas.router';
 import dashboardRoutes from './Routes/dashboard.router';
 
 const app = express();
-app.use(cors({ origin: process.env.FRONT_URL || 'http://localhost:4200' }));
+// FRONT_URL admite varios orígenes separados por coma; se quita la "/" final para evitar fallos de CORS
+const allowedOrigins = (process.env.FRONT_URL || 'http://localhost:4200')
+  .split(',')
+  .map((o) => o.trim().replace(/\/$/, ''))
+  .filter(Boolean);
+
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 app.get('/api/v1/health', (_req, res) => res.json({ status: 'OK' }));

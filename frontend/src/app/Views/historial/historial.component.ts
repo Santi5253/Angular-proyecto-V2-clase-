@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { VentasService } from '../../Services/ventas.service';
-import { TablaComponent } from '../../tabla/tabla';
+import { TablaComponent } from '../../Components/tabla/tabla';
 
 @Component({
   selector: 'app-historial',
